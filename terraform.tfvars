@@ -1,6 +1,6 @@
 tfstate_gcs_backend = "hnb-bkt-tfstate-60c0"
-region = "asia-south2"
-zones = ["asia-south2-a"]
+region = "us-west1"
+zones = ["us-west1-a"]
 ip_range_pods_name = "ip-range-pods"
 ip_range_services_name = "ip-range-scv"
 network_name = "jenkins-network"
