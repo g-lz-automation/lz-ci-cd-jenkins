@@ -35,43 +35,12 @@ module "enables-google-apis" {
   ]
 }
 
-/*****************************************
-  Jenkins VPC
- *****************************************/
-module "jenkins-vpc" {
-  source  = "terraform-google-modules/network/google"
-
-  project_id   = module.enables-google-apis.project_id
-  network_name = var.network_name
-
-  subnets = [
-    {
-      subnet_name   = var.subnet_name
-      subnet_ip     = "10.0.0.0/17"
-      subnet_region = var.region
-    },
-  ]
-
-  secondary_ranges = {
-    "${var.subnet_name}" = [
-      {
-        range_name    = var.ip_range_pods_name
-        ip_cidr_range = "192.168.0.0/18"
-      },
-      {
-        range_name    = var.ip_range_services_name
-        ip_cidr_range = "192.168.64.0/18"
-      },
-    ]
-  }
-}
-
 resource "google_container_cluster" "jenkins-gke" {
   name                      = "jenkins"
   enable_autopilot          = true
   location                  = var.region
-  network                   = module.jenkins-vpc.network_name
-  subnetwork                = module.jenkins-vpc.subnets_names[0]
+  network                   = var.network_name
+  subnetwork                = var.subnet_name
   project                   = module.enables-google-apis.project_id
   ip_allocation_policy {
   }
