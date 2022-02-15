@@ -68,3 +68,7 @@ variable "github_token" {
 variable "github_repo" {
   description = "Github repo name."
 }
+
+variable "project_id" {
+  description = "The project ID where resources would be deployed"
+}

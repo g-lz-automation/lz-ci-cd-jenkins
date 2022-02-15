@@ -11,3 +11,5 @@ jenkins_k8s_config = "jenkins-k8s-config"
 github_repo = "automated-lz"
 github_token = "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"
 github_username = "prateek2408"
+
+project_id = "prj-jenkins-e29a"

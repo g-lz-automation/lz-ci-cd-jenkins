@@ -21,7 +21,7 @@
 module "enables-google-apis" {
   source  = "terraform-google-modules/project-factory/google//modules/project_services"
 
-  project_id = module.jenkins-project.project_id
+  project_id = var.project_id
 
   activate_apis = [
     "iam.googleapis.com",

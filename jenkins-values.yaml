@@ -13,6 +13,9 @@
 # limitations under the License.
 
 controller:
+  tag: 2.249.3-lts
+  adminUser: admin
+  adminPassword: admin
   componentName: "jenkins-controller"
   image: "jenkins/jenkins"
   tagLabel: jdk11
@@ -28,6 +31,10 @@ controller:
       cpu: "200m"
       memory: "4096Mi"
   
+  initContainerEnv:
+    - name: JENKINS_UC_DOWNLOAD
+      value: http://ftp-nyc.osuosl.org/pub/jenkins
+
   initContainerResources:
     requests:
       cpu: "50m"
