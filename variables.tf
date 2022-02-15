@@ -68,3 +68,13 @@ variable "github_repo" {
 variable "project_id" {
   description = "The project ID where resources would be deployed"
 }
+
+variable "create_namespace" {
+  type = bool
+  default = true
+}
+
+variable "namespace" {
+  type = string
+  default = "jenkins"
+}
