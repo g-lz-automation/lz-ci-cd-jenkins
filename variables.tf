@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 Google LLC
+ * Copyright 2022 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,21 +24,6 @@ variable "region" {
   default     = "us-east4"
 }
 
-variable "zones" {
-  description = "The GCP zone to deploy gke into"
-  default     = ["us-east4-a"]
-}
-
-variable "ip_range_pods_name" {
-  description = "The secondary ip range to use for pods"
-  default     = "ip-range-pods"
-}
-
-variable "ip_range_services_name" {
-  description = "The secondary ip range to use for pods"
-  default     = "ip-range-scv"
-}
-
 variable "network_name" {
   description = "Name for the VPC network"
   default     = "jenkins-network"
@@ -48,33 +33,6 @@ variable "subnet_name" {
   default     = "jenkins-subnet"
 }
 
-variable "jenkins_k8s_config" {
-  description = "Name for the k8s secret required to configure k8s executers on Jenkins"
-  default     = "jenkins-k8s-config"
-}
-
-variable "github_username" {
-  description = "Github user/organization name where the terraform repo resides."
-}
-
-variable "github_token" {
-  description = "Github token to access repo."
-}
-
-variable "github_repo" {
-  description = "Github repo name."
-}
-
 variable "project_id" {
   description = "The project ID where resources would be deployed"
-}
-
-variable "create_namespace" {
-  type = bool
-  default = true
-}
-
-variable "namespace" {
-  type = string
-  default = "jenkins"
 }
